@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>СV - Roman Pronin</title>
+</head>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<body>
+    <div class="bg"></div>
+
+    <div class="menu-bar">
+        <div class="menu-url">
+            <a id="menu-0" onclick="changePosition(0)">About me</a>
+            <a id="menu-1" onclick="changePosition(1)">Skills</a>
+            <a id="menu-2" onclick="changePosition(2)">Hobby</a>
+            <a id="menu-3" onclick="changePosition(3)">Contact</a>
+            <a id="menu-3" onclick="changePosition(4)">Work experience</a>
+            <a id="menu-3" onclick="changePosition(5)">Examples of works</a>
+        </div>
+    </div>
+
+    <div id="user-info-display">
+        <div id="user-info">
+            <h1>About me</h1><br>
+            <div id="avatar"></div><br>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br><br>
+            <a class="download-button btn" type="sumbit" href="#" download>Download CV</a>
+        </div>
+        <div id="user-info">
+            <h1>Skills</h1><br>
+            <div id="background-skill">
+                <div class="skill sk-bg sk-1">HTML</div>
+                <div class="skill sk-bg sk-2">JavaScript</div>
+                <div class="skill sk-bg sk-3">PHP</div>
+                <div class="skill sk-bg sk-4">CSS</div>
+                <div class="skill sk-bg sk-5">SQL</div>
+                <div class="skill sk-bg sk-6">DataBase</div>
+                <div class="skill sk-bg sk-7">Java</div>
+                <div class="skill sk-bg sk-8">Python</div>
+            </div>
+        </div>
+        <div id="user-info">
+            <h1>Hobby</h1><br><br><br>
+            <div id="hobby-list-img">
+                <img id="hobby-1" src="img/hb_1.png" alt="">
+                <img id="hobby-2" src="img/hb_2.png" alt="">
+                <img id="hobby-3" src="img/hb_3.png" alt="">
+            </div><br><br>
+            <div id="hobby-list-text">
+                <div id="hobby-text-1" style="transition: 0.4s; opacity: 0"></div>
+                <div id="hobby-text-2" style="transition: 0.4s; opacity: 0"></div>
+                <div id="hobby-text-3" style="transition: 0.4s; opacity: 0"></div>
+            </div>
+        </div>
+        <div id="user-info">
+            <h1>Contact</h1><br>
+            <div id="contact-list">
+                <i class="fa-solid fa-phone"></i> Simple text <br><br>
+                <i class="fa-sharp fa-solid fa-envelope"></i> Simple text <br><br>
+                <i class="fa-brands fa-linkedin"></i> <a href="#"
+                    style="color: white;" target="_blank">Simple text</a><br><br>
+                <i class="fa-brands fa-github"></i> <a href="#" style="color: white;"
+                    target="_blank">Simple text</a>
+            </div>
+        </div>
+        <div id="user-info">
+            <h1>Work experience</h1><br>
+        </div>
+        <div id="user-info">
+            <h1>Examples of works</h1><br>
+            <div id="examples-list">
+                <i class="fa-brands fa-github"></i> <a href="https://github.com/s1rusOne/Game-Snake-Fixed-"
+                    style="color: white;" target="_blank"> Game: Snake</a><br><br>
+                <i class="fa-brands fa-github"></i> <a href="https://github.com/s1rusOne/Trade-Web-Page"
+                    style="color: white;" target="_blank"> Simple trade page</a><br><br>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div id="footer-text" style="transition: 0.4s; opacity: 1">
+            <div id="ft-text"></div>
+            Created by s1rusOne<br>
+            17.04.2023<br>
+            <a href="https://github.com/s1rusOne"> GitHub</a>
+        </div>
+        <!-- <ul id="footer-event" style="transition: 0.4s; opacity: 1">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul> -->
+    </footer>
+
+    <script>
+
+        window.addEventListener("keydown", function(e) {
+            window.scrollTo(0,0)
+        }, false);
+
+        const userInfo = document.getElementById('user-info-display')
+        const bgInfo = document.getElementById('background-skill')
+
+        const hb_1 = document.getElementById('hobby-1')
+        const hb_2 = document.getElementById('hobby-2')
+        const hb_3 = document.getElementById('hobby-3')
+
+        const hb_text_1 = document.getElementById('hobby-text-1')
+        const hb_text_2 = document.getElementById('hobby-text-2')
+        const hb_text_3 = document.getElementById('hobby-text-3')
+
+        const footer_event = document.getElementById('footer-event')
+        const footer_text = document.getElementById('footer-text')
+
+        userInfo.classList.toggle('active_0')
+
+        function isInside(node, target) {
+            for (; node != null; node = node.parentNode)
+                if (node == target) return true;
+        }
+
+        function changePosition(iNum) {
+
+            bgInfo.className = '';
+            userInfo.className = '';
+
+            if (iNum === 1) bgInfo.classList.toggle('active')
+
+            switch (iNum) {
+
+                default: userInfo.classList.toggle('active_' + iNum)
+            }
+        }
+
+        hb_1.addEventListener("mouseover", function (event) { if (!isInside(event.relatedTarget, hb_1)) hb_text_1.innerHTML = "Floorball"; hb_text_1.style.opacity = 1 });
+        hb_2.addEventListener("mouseover", function (event) { if (!isInside(event.relatedTarget, hb_2)) hb_text_2.innerHTML = "Games"; hb_text_2.style.opacity = 1 });
+        hb_3.addEventListener("mouseover", function (event) { if (!isInside(event.relatedTarget, hb_3)) hb_text_3.innerHTML = "Sports"; hb_text_3.style.opacity = 1 });
+
+        hb_1.addEventListener("mouseout", function (event) { if (!isInside(event.relatedTarget, hb_1)) hb_text_1.innerHTML = ""; hb_text_1.style.opacity = 0 });
+        hb_2.addEventListener("mouseout", function (event) { if (!isInside(event.relatedTarget, hb_2)) hb_text_2.innerHTML = ""; hb_text_2.style.opacity = 0 });
+        hb_3.addEventListener("mouseout", function (event) { if (!isInside(event.relatedTarget, hb_3)) hb_text_3.innerHTML = ""; hb_text_3.style.opacity = 0 });
+
+        footer_event.addEventListener("mouseover", function (event) {
+            if (!isInside(event.relatedTarget, footer_event)) {
+                footer_event.style.opacity = 0
+                footer_text.style.opacity = 1
+            }
+        });
+        footer_event.addEventListener("mouseout", function (event) {
+            if (!isInside(event.relatedTarget, footer_event)) {
+                footer_event.style.opacity = 1
+                footer_text.style.opacity = 0
+            }
+        });
+
+        function donwloadCV() {
+
+            const span = document.querySelector("form button")
+            span.style.visibility = "visible"
+            setTimeout(() => {
+                span.style.visibility = "hidden"
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>
